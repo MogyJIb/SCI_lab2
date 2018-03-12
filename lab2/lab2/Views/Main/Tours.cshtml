@@ -1,0 +1,69 @@
+﻿@model lab2.ViewModels.TourViewModel
+<style type="text/css">
+    th, td {
+        padding-right: 15px;
+    }
+</style>
+
+<hr style="border-top: 3px double #8c8b8b;" />
+<div>
+    <form class="form-inline" method="get" style="float:left; width:300px; margin-left:30px">
+        @Html.Label("Tour kind name:")
+        @Html.DropDownList("TourKind", new SelectList(new string[] { "First", "Second", "ADSADdd", "12ss" }), "All")
+        <br />
+        <input type="submit" value="Show" />
+    </form>
+
+
+    <form class="form-inline" method="post" style="float:right; width:300px;">
+        @Html.Label("Price:")
+        @Html.TextBox("Price")
+        <br />
+
+        @Html.Label("Start date:")
+        <input type="date" id="StartDate" name="StartDate" />
+        <br />
+
+        @Html.Label("End date:")
+        <input type="date" id="EndDate" name="EndDate" />
+        <br />
+
+        @Html.Label("Tour kind:")
+        @Html.DropDownList("TourKindId", new SelectList(new int[] { 1,2,3,4,5}))
+        <br />
+
+        @Html.Label("Client:")
+        @Html.DropDownList("ClientId", new SelectList(new int[] { 1, 2, 3, 4, 5 }))
+        <br />
+        <input type="submit" value="Add" />
+    </form>
+</div>
+<div style="clear:both"></div>
+<hr style="border-top: 3px double #8c8b8b;" />
+
+<table style="margin:0px auto; width:500px">
+    <caption>Tour kinds</caption>
+    <tr>
+        <th>Price</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Tour kind Id</th>
+        <th>Client Id</th>
+    </tr>
+    @foreach (var tour in Model.Tours)
+    {
+    <tr>
+        <td>@tour.Price</td>
+        <td>@tour.StartDate</td>
+        <td>@tour.EndDate</td>
+        <td>@tour.TourKindId</td>
+        <td>@tour.ClientId</td>
+    </tr>
+    }
+
+</table>
+
+
+<hr style="border-top: 3px double #8c8b8b;" />
+
+

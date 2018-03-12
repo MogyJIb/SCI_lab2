@@ -1,0 +1,56 @@
+﻿@model lab2.ViewModels.TourKindViewModel
+<style type="text/css">
+    th, td {
+        padding-right: 15px;
+    }
+</style>
+
+<hr style="border-top: 3px double #8c8b8b;" />
+<div>
+    <form class="form-inline" method="get" style="float:left; width:300px; margin-left:30px">
+        @Html.Label("Enter name or its part:")
+        @Html.TextBox("Name", Model.SelectedName)
+        <br />
+        <input type="submit" value="Show" />
+    </form>
+
+
+    <form class="form-inline" method="post" style="float:right; width:300px;">
+        @Html.Label("Name:")
+        @Html.TextBox("Name")
+        <br />
+
+        @Html.Label("Constraints:")
+        @Html.TextBox("Constraints")
+        <br />
+
+        @Html.Label("Description:")
+        @Html.TextBox("Description")
+        <br />
+        <input type="submit" value="Add" />
+    </form>
+</div>
+<div style="clear:both"></div>
+<hr style="border-top: 3px double #8c8b8b;" />
+
+<table style="margin:0px auto; width:500px">
+    <caption>Tour kinds</caption>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Constraints</th>
+    </tr>
+    @foreach (var tourKind in Model.TourKinds)
+    {
+        <tr>
+            <td>@tourKind.Name</td>
+            <td>@tourKind.Description</td>
+            <td>@tourKind.Constraints</td>
+        </tr>
+    }
+
+</table>
+
+
+<hr style="border-top: 3px double #8c8b8b;" />
+
